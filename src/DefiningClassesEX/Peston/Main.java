@@ -1,7 +1,5 @@
 package DefiningClassesEX.Peston;
 
-import DefiningClassesEX.Person;
-
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;

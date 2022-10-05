@@ -1,5 +1,5 @@
 
-package DefiningClassesEX;
+package DefiningClassesEX.Peston;
 public class Person {
     public String name;
     public int age;
