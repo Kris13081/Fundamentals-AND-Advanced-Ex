@@ -1,7 +1,6 @@
 package CarSalesman;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -9,13 +8,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int numberOfEngines = Integer.parseInt(scanner.nextLine());
-        List<Engine> engineList = new LinkedList<>();
+//        List<Engine> engineList = new LinkedList<>();
 
         for (int i = 0; i < numberOfEngines; i++) {
             Engine engine = new Engine();
-            engine = engine.enginSpecs(scanner);
-            engineList.add(engine);
-            System.out.println();
+            Map<String, Engine> engines = engine.enginSpecs(scanner);
+            engines.forEach((s, engine1) -> System.out.print(engine1.toString()));
         }
     }
 }
