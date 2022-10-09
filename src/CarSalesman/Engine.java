@@ -1,6 +1,6 @@
 package CarSalesman;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ public class Engine {
     private int power;
     private String displacement;
     private String efficiency;
+    Scanner scanner = new Scanner(System.in);
 
 
     public Engine(String model, int power, String displacement, String efficiency) {
@@ -23,8 +24,7 @@ public class Engine {
     }
 
 
-    public Map<String, Engine> enginSpecs(Scanner scanner) {
-        Map<String, Engine> engines = new LinkedHashMap<>();
+    public Engine engineInitializer() {
         Engine engine;
         String[] enginData = scanner.nextLine().split(" ");
         String engineModel = enginData[0];
@@ -34,19 +34,27 @@ public class Engine {
             if (character >= 101 && character <= 132) {
                 String engineEfficiency = enginData[2];
                 engine = new Engine(engineModel, enginePower, "n/a", engineEfficiency);
-                engines.put(engineModel, engine);
-                return engines;
+
+                return engine;
             } else if (character >= 48 && character <= 57) {
                 String engineDisplacement = enginData[2];
                 engine = new Engine(engineModel, enginePower, engineDisplacement, "n/a");
-                engines.put(engineModel, engine);
-                return engines;
+                return engine;
             }
         }
         String engineDisplacement = enginData[2];
         String engineEfficiency = enginData[3];
         engine = new Engine(engineModel, enginePower, engineDisplacement, engineEfficiency);
-        engines.put(engineModel, engine);
+        return engine;
+    }
+
+    public Map<String, Engine> enginProducer(){
+        int numberOfEngines = Integer.parseInt(scanner.nextLine());
+        Map<String, Engine> engines = new HashMap<>();
+        for (int i = 0; i < numberOfEngines; i++) {
+            Engine engine = new Engine().engineInitializer();
+            engines.put(engine.getModel(),engine);
+        }
         return engines;
     }
 
