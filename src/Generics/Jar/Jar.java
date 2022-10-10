@@ -1,4 +1,23 @@
 package Generics.Jar;
 
-public class Jar {
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Jar<T> {
+
+    private Deque<T> stack;
+
+    public Jar() {
+        this.stack = new ArrayDeque<>();
+    }
+
+    public void add(T element) {
+        this.stack.push(element);
+    }
+
+    public T remove() {
+        return this.stack.pop();
+    }
+
+
 }
