@@ -46,9 +46,8 @@ public class ChocolateTime {
                 chocolatesBars.put("Baking Chocolate", bakingCounter + 1);
                 bakingCounter++;
             } else {
-                cacao.pop();
-                double increaseMilk = milk.poll() + 10;
-                milk.offer(increaseMilk);
+                    cacao.pop();
+                    milk.offer(milk.poll() + 10);
             }
         }
         if (chocolatesBars.size() < 3) {
