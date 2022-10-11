@@ -35,7 +35,15 @@ public class ChocolateTime {
 
         while (!cacao.isEmpty() && !milk.isEmpty()) {
 
-            double chocolateValue = quantityCalculator(milk.poll(), cacao.pop());
+            double milkValue = milk.poll();
+            double cacaoValue = cacao.pop();
+
+            if (cacaoValue == 0){
+                milkValue += 10;
+                milk.offer(milkValue);
+            }
+
+            double chocolateValue = quantityCalculator(milkValue, cacaoValue);
             if (chocolateValue == 30) {
                 chocolatesBars.put("Milk Chocolate", milkCounter + 1);
                 milkCounter++;
@@ -46,8 +54,8 @@ public class ChocolateTime {
                 chocolatesBars.put("Baking Chocolate", bakingCounter + 1);
                 bakingCounter++;
             } else {
-                    cacao.pop();
-                    milk.offer(milk.poll() + 10);
+                milkValue += 10;
+                milk.offer(milkValue);
             }
         }
         if (chocolatesBars.size() < 3) {
