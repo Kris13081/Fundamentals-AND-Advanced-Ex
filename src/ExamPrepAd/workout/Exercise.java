@@ -1,4 +1,4 @@
-package workout;
+package ExamPrepAd.workout;
 
 public class Exercise {
     public String name;

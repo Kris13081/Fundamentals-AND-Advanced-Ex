@@ -1,4 +1,4 @@
-package workout;
+package ExamPrepAd.workout;
 
 import java.util.ArrayList;
 import java.util.List;
